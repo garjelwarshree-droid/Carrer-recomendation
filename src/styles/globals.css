@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette */
+  --color-background: #ffffff;
+  --color-foreground: #0f172a;
+  
+  --color-card: #ffffff;
+  --color-card-foreground: #0f172a;
+  
+  --color-popover: #ffffff;
+  --color-popover-foreground: #0f172a;
+  
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  
+  --color-accent: #f1f5f9;
+  --color-accent-foreground: #0f172a;
+  
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #3b82f6;
+  
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1 {
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+  }
+  
+  h2 {
+    @apply scroll-m-20 text-3xl font-semibold tracking-tight;
+  }
+  
+  h3 {
+    @apply scroll-m-20 text-2xl font-semibold tracking-tight;
+  }
+  
+  h4 {
+    @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  }
+  
+  p {
+    @apply leading-7;
+  }
+  
+  blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+}
+
+@layer utilities {
+  /* Custom animations */
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+    20%, 40%, 60%, 80% { transform: translateX(4px); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+    }
+  }
+  
+  .shake {
+    animation: shake 0.5s;
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+  
+  /* Smooth transitions for all interactive elements */
+  button, a, input, select, textarea {
+    @apply transition-all duration-200;
+  }
+  
+  /* Glass morphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}

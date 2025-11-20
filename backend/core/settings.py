@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-&(pbdh)grie05)
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 # Allow hosts from env (comma-separated) or default to localhost for dev
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,carrer-recomendation.onrender.com').split(',')
 
 
 # Application definition
@@ -137,6 +137,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://localhost:3001',
+    'https://inspiring-naiad-bfde9d.netlify.app',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'https://carrer-recomendation.onrender.com',
+    'https://inspiring-naiad-bfde9d.netlify.app',
 ]
 
 REST_FRAMEWORK = {
